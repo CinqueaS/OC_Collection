@@ -5,8 +5,9 @@ const Story = new Schema(
     {
         title: {type: String, required: true },
         genres: {type: Array, required: true},
-        creator: {type: Schema.Types.ObjectId, ref: 'creators_id'},
-        characters: {type: Array, required: true}
+        creator: {type: mongoose.Schema.Types.ObjectId, ref: 'creators_id', required: false},
+        characters: {type: mongoose.Schema.Types.ObjectId, ref: 'characters_id', required: false},
+        chapters: {type: Array, required: true}
 
     },
     { timestamps: true },

@@ -4,8 +4,8 @@ const  { Schema } = require('mongoose')
 const Creator = new Schema(
     {
         userName: { type: String, required: true },
-        stories: {}
-
+        stories: {type: mongoose.Schema.Types.ObjectId, ref: "stories_id", required: false},
+        characters: {type: mongoose.Schema.Types.ObjectId, ref: "characters_id", required: false}
     },
     { timestamps: true },
 )
