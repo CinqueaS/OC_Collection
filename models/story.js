@@ -13,4 +13,4 @@ const Story = new Schema(
     { timestamps: true },
 )
 
-module.exports = mongoose.model('stories', Story)
+module.exports = mongoose.model('story', Story)

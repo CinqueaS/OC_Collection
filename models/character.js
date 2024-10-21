@@ -16,4 +16,4 @@ const Character = new Schema(
     { timestamps: true },
 )
 
-module.exports = mongoose.model('characters', Character)
+module.exports = mongoose.model('character', Character)

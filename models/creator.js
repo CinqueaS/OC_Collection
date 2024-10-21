@@ -10,4 +10,4 @@ const Creator = new Schema(
     { timestamps: true },
 )
 
-module.exports = mongoose.model('creators', Creator)
+module.exports = mongoose.model('creator', Creator)
