@@ -23,7 +23,7 @@ header {
 
 }
 
-.brands button {
+.stories button {
     margin: 0 10px;
     padding: 10px 20px;
     background-color: tan;
@@ -32,12 +32,12 @@ header {
 }
 
 
-.brands button:hover {
+.stories button:hover {
     background-color: #555;
 }
 
 .section-1 {
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     padding: 40px 20px;
 }
 
@@ -47,14 +47,14 @@ header {
     margin-bottom: 20px;
 }
 
-.brand-container {
+.character-container {
     display: flex;
     justify-content: center;
     gap: 20px;
 }
 
-.brand-box {
-    background-color: #ddd;
+.character-box {
+    background-color: #ffffff;
     padding: 40px;
     width: 150px;
     height: 150px;
@@ -64,32 +64,13 @@ header {
     font-weight: bold;
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-footer input {
-    padding: 10px;
-    width: 300px;
-}
-
-footer button {
-    padding: 10px 20px;
-    background-color: tan;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
 .main-content {
     padding: 20px;
     text-align: center;
 
 }
 
-.brand-section {
+.character-section {
     margin-bottom: 20px;
 }
 
@@ -109,7 +90,7 @@ footer button {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ccc;
+    border: 1px solid #ffffff;
     border-radius: 10px;
     background-color: #f8f8f8;
 }
