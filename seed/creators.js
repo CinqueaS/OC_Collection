@@ -27,7 +27,7 @@ const main = async () => {
         gender: "Female",
         height: `5'3/160cm`,
         weight: "123lbs",
-        images: ["../images/Ko7Mqei.png"]
+        images: "../images/Ko7Mqei.png"
  })
     const Gys = await new Character({        
             Name: "Gys",
@@ -37,7 +37,7 @@ const main = async () => {
             gender: "Female",
             height: `5'9/175cm`,
             weight: "142lbs",
-            images: ["images/unsafe_full.png"]
+            images: "../images/unsafe_full.png"
             
         
     })

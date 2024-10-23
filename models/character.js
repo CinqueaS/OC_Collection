@@ -10,7 +10,7 @@ const Character = new Schema(
         gender: {type: String, required: true},
         height: {type: String, required: true},
         weight: {type: String, required: true},
-        images: {type: Array, required: true}
+        images: {type: String, required: true}
 
     },
     { timestamps: true },
