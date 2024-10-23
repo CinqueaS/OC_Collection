@@ -16,14 +16,14 @@
     <header>
         <h1>Da Army</h1>
         <div class="stories">
-            <button><a href="index.html">Home</a></button>
-            <button><a href="stories.html">WitchKnight</a></button>
-            <button><a href="stories.html">Nhamrousia</a></button>
-            <button><a href="stories.html">Dreamless</a></button>           
+            <button id="Home">Home</button>
+            <button id="WK">WitchKnight</button>
+            <button id="NH">Nhamrousia</button>
+            <button id="DR">Dreamless</button>           
         </div>
     </header>
 
-    <section class="section-1">
+    <section id="section-1">
         <h2>Popular Characters</h2>
 
         <div class="character-container" id="characters"> 
@@ -50,6 +50,7 @@
     <section id="results" class="hidden" display="none">
         <div id="characterDetails" display="none">
             <h1 id="characterName"></h1>
+            <img id="characterImg" style = "width: 400px; height: 400px"> </img>
             <h2 id="homeStory"> </h2>
             <ul> 
                 <li id="age">age: </li>
@@ -60,9 +61,15 @@
         
             <p id="bio"> </p>
         </div>
-        <button id="close-results-btn">Close</button>
+        <button id="closeButton">Close</button>
     </div>
         </div>
+    </section>
+
+    <section id="story" class="hidden" display="none">
+       <div id="chapters"> 
+
+       </div>
     </section>
 </body>
 

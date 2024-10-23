@@ -161,8 +161,8 @@ const getStoryById = async (req, res) => {
     try {
         const { id } = req.params;
         const story = await Story.findById(id)
-        if (directions) {
-            return res.json(directions);
+        if (story) {
+            return res.json(story);
         }
         return res.status(404).send('Character with the specified ID does not exists');
     } catch (error) {
