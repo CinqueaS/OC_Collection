@@ -1,34 +1,31 @@
-// const Home = require("Home.js")
+const Home = require("Home.js")
 // const getOC = async () => {
-    console.log("sanity check")
 //     const OCs = await axios.get(`http://localhost:3001/Character/`)
 //     console.log(OCs)
 // }
 
 
-// let characterName = document.querySelector(`#characterName`)
-// let homeStory = document.querySelector(`#homeStory`)
-// getOC() 
-// async function OCSearch() {
+let characterName = document.querySelector(`#characterName`)
+let homeStory = document.querySelector(`#homeStory`)
+getOC() 
+async function OCSearch() {
 
-//     let id = "671657082dc320fe35999f25"
-//     let response = await axios.get(
-//         `http://localhost:3001/Character/${id}`, 
-//     )
+    let id = "671657082dc320fe35999f25"
+    let response = await axios.get(
+        `http://localhost:3001/Character/${id}`, 
+    )
 
-//     let OCname = response.data.Name
-//     // let Story = response.data.story
-//     characterName.innerText = OCname
-//     // homeStory.innerText = Story
+    let OCname = response.data.Name
+    // let Story = response.data.story
+    characterName.innerText = OCname
+    // homeStory.innerText = Story
 
-//     console.log(OCname)
-//     console.log(response)
+    console.log(OCname)
+    console.log(response)
 
-// }
-// OCSearch()
-// OCimage.forEach.addEventListener(`click`, () => {
-//     OCSearch()
-// })
+}
+OCSearch()
+
 
 // button.addEventListener(`click`, () => {
 // 
