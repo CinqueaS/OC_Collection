@@ -6,46 +6,55 @@ let buttonWK = document.getElementById('WK')
 let buttonNH = document.getElementById('NH')
 let buttonDR = document.getElementById('DR')
 let buttonHome = document.getElementById('Home')
+
 const getOC = async () => {
     const OCs = await axios.get(`http://localhost:3001/Character/`)
-
-    OCs.data.forEach((OC) => {
-       let new_div = document.createElement("div")
-       let parent = document.getElementById("characters")
-       let div_img = document.createElement("img")
-       let button = document.createElement("button")
-       parent.appendChild(new_div)
-       new_div.appendChild(button)
-       button.appendChild(div_img)
-       div_img.style.width = "230px"
-       div_img.style.height = "230px"
-        new_div.setAttribute("class", "character-box")
-        div_img.setAttribute("id", `${OC._id}`)
-        div_img.setAttribute (`src`, `${OC.images}`)
-        div_img.setAttribute("alt", `${OC.Name}`)
-        button.setAttribute("class", `clickable-image`)
-        images = document.querySelectorAll('.clickable-image')
+    const creators = await axios.get(`http://localhost:3001/Creators/`)
+    let i = 0
+        OCs.data.forEach((OC) => {
+            let new_div = document.createElement("div")
+            let parent = document.getElementById("characters")
+            let div_img = document.createElement("img")
+            let button = document.createElement("button")
+            div_img.setAttribute("class",  `${creators.data[i]._id}`)
+            parent.appendChild(new_div)
+            new_div.appendChild(button)
+            button.appendChild(div_img)
+            div_img.style.width = "230px"
+            div_img.style.height = "230px"
+             new_div.setAttribute("class", "character-box")
+             div_img.setAttribute("id", `${OC._id}`)
+             div_img.setAttribute (`src`, `${OC.images}`)
+             div_img.setAttribute("alt", `${OC.Name}`)
+             button.setAttribute("class", `clickable-image`)
+             images = document.querySelectorAll('.clickable-image')
+            i = i+1
+         } 
         
-    } )
+     )
+    
+   
 getThisOC()
-console.log(images)
-}
+console.log(creators)
+    }
 getOC()
 
 
 async function getThisOC() {
     images.forEach(image => {
         image.addEventListener('click', async (event) => {
-            const id = event.target.getAttribute('id');
+            const id = event.target.getAttribute('id')
+            const classid = event.target.getAttribute('class')
             console.log(id)
             const characterDetails = document.querySelector('#results')
             const characterContainer = document.querySelector('#section-1')
 
             try {
                 const response = await axios.get(`http://localhost:3001/Character/${id}`)
+                const response2 = await axios.get(`http://localhost:3001/Creators/${classid}`)
                 const OC = response.data
                 document.getElementById('characterName').innerText = `${OC.Name}`
-                document.getElementById('homeStory').innerText = `appears in ${OC.story}`
+                document.getElementById('owner').innerText = `this OC belongs to ${response2.data.userName}`
                 document.getElementById('age').innerText = `age: ${OC.age}`
                 document.getElementById('gender').innerText = `gender: ${OC.gender}`
                 document.getElementById('height').innerText = `height: ${OC.height}`
@@ -105,7 +114,7 @@ async function showChapters(arr) {
 
 buttonWK.addEventListener('click', async () => {
     console.log("click")
-    let gotchapters = await axios.get(`http://localhost:3001/Story/671949c2925be90a64256f46`)
+    let gotchapters = await axios.get(`http://localhost:3001/Story/671a583a0a1131e926ad6189`)
     chapters = gotchapters.data.chapters
     console.log(chapters)
     const characterDetails = document.querySelector('#results')
@@ -117,11 +126,18 @@ buttonWK.addEventListener('click', async () => {
 })
 
 buttonNH.addEventListener('click', async () => {
-    console.log("click")
+    let gotchapters = await axios.get(`http://localhost:3001/Story/671a583a0a1131e926ad618a`)
+    chapters = gotchapters.data.chapters
+    console.log(chapters)
+    const characterDetails = document.querySelector('#results')
+    const characterContainer = document.querySelector('#section-1')
+    characterDetails.classList.add('hidden')
+    characterContainer.classList.add('hidden')
+    showChapters(chapters)
 })
 
 buttonDR.addEventListener('click', async () => {
-    let gotchapters = await axios.get(`http://localhost:3001/Story/671949c2925be90a64256f46`)
+    let gotchapters = await axios.get(`http://localhost:3001/Story/671a583a0a1131e926ad618b`)
     chapters = gotchapters.data.chapters
     console.log(chapters)
     const characterDetails = document.querySelector('#results')
