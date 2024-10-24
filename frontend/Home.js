@@ -39,7 +39,12 @@ console.log(creators)
     }
 getOC()
 
-
+const getCreators = async() =>{
+    const creators = await axios.get(`http://localhost:3001/Creators/`)
+    botOfPage = document.querySelector('.Creators')
+    botOfPage.innerText = `Brought to you by our following sponsors ${creators.data[0].userName}, ${creators.data[1].userName}, ${creators.data[2].userName}`
+}
+getCreators()
 async function getThisOC() {
     images.forEach(image => {
         image.addEventListener('click', async (event) => {
