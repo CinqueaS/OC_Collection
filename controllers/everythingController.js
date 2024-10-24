@@ -188,7 +188,7 @@ const createStory = async (req, res) => {
 const updateStory= async (req, res) => {
     try {
         let { id } = req.params;
-        let updatedStory = await Storys.findByIdAndUpdate(id, req.body, { new: true })
+        let updatedStory = await Story.findByIdAndUpdate(id, req.body, { new: true })
         if (updatedStory) {
             return res.status(200).json(updatedStory)
         }
